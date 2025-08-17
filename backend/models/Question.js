@@ -5,7 +5,8 @@ const questionSchema=new mongoose.Schema({
         type:String
     },
     url:{
-        type:String
+        type:String,
+        alias:'yt_link'
     },
     difficulty:{
         type:String,

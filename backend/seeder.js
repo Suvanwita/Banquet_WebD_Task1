@@ -16,7 +16,11 @@ const seedData=async()=>{
         await Question.deleteMany();
         await Category.deleteMany();
 
-        const allQuestions=data.data.flatMap((category)=>category.ques);
+        const allQuestions=data.data.flatMap((category)=>category.ques.map(q=>({
+            title:q.title,
+            difficulty:q.difficulty,
+            url:q.yt_link
+        })));
         const insertedQuestions=await Question.insertMany(allQuestions);
 
         const categories=data.data.map((category)=>({
@@ -27,6 +31,7 @@ const seedData=async()=>{
         }))
 
         await Category.insertMany(categories);
+        console.log("Successfully seeded")
     }
     catch(err){
         console.log("Seeding error: ",err.message)
