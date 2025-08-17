@@ -12,6 +12,9 @@ app.use(express.json());
 const categoryRoutes=require('./routes/categoryRoutes')
 app.use('/api/categories',categoryRoutes)
 
+const authRoutes=require('./routes/authRoutes')
+app.use('/api/v1/auth',authRoutes)
+
 const PORT=process.env.PORT||5000;
 
 const startServer=async()=>{

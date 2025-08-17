@@ -1,4 +1,5 @@
 const mongoose=require('mongoose')
+const bcrypt=require('bcryptjs')
 
 const userSchema= new mongoose.Schema({
     name:{
@@ -12,7 +13,7 @@ const userSchema= new mongoose.Schema({
     password:{
         type:String
     }
-});
+},{timestamps:true});
 
 const User=new mongoose.model("User",userSchema)
 module.exports={User}
