@@ -15,6 +15,9 @@ app.use('/api/categories',categoryRoutes)
 const authRoutes=require('./routes/authRoutes')
 app.use('/api/v1/auth',authRoutes)
 
+const userRoutes=require('./routes/userRoutes')
+app.use('/api/v1/user',userRoutes)
+
 const PORT=process.env.PORT||5000;
 
 const startServer=async()=>{
